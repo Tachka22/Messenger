@@ -1,4 +1,6 @@
-﻿namespace mauiClient
+﻿using mauiClient.View;
+
+namespace mauiClient
 {
     public partial class App : Application
     {
@@ -6,7 +8,7 @@
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            MainPage = new NavigationPage(new AuthorizationPage());
         }
     }
 }
