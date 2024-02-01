@@ -15,10 +15,13 @@
         <StackLayout  Padding="20"
                           Spacing="20"
                           MaximumWidthRequest="500">
-            <Entry Placeholder="Почта"
-                       x:Name="ent_Login"/>
+            <Entry 
+                Placeholder="Почта"
+                x:Name="ent_Login"
+                TextColor="White"/>
             <Entry Placeholder="Пароль" 
-                       IsPassword="True" 
+                       IsPassword="True"
+                   TextColor="White"
                        x:Name="ent_Password"/>
             <Button Text="Войти"
                         BackgroundColor="White"
