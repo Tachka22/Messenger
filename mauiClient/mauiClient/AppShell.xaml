@@ -4,12 +4,26 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:mauiClient"
-    Shell.FlyoutBehavior="Disabled"
-    Title="mauiClient">
+    xmlns:view="clr-namespace:mauiClient.View">
+    <!--Shell.FlyoutBehavior="Disabled"
+    Title="mauiClient">-->
 
-    <ShellContent
+    <!--<ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
-
+        Route="MainPage" />-->
+    <TabBar>
+        <ShellContent
+            Title="Contacts"
+            Icon="contacts.svg"
+            ContentTemplate="{DataTemplate view:ContactsPage}"/>
+        <ShellContent
+            Title="Chats"
+            Icon="chat.svg"
+            ContentTemplate="{DataTemplate view:HomeChatsPage}"/>
+        <ShellContent
+            Title="Settings"
+            Icon="settings.svg"
+            ContentTemplate="{DataTemplate view:SettingPage}"/>
+    </TabBar>
 </Shell>
