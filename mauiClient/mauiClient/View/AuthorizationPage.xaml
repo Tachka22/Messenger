@@ -3,42 +3,149 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="mauiClient.View.AuthorizationPage"
              Title="AuthorizationPage">
-    <VerticalStackLayout BackgroundColor="#1d2d44">
-        <Label Text="Добро пожаловать!"
-                   FontSize="35"
-                   HorizontalOptions="Center"
-                   HorizontalTextAlignment="Center"
-                   Margin="0,50,0,50"
-                    TextColor="White"/>
+    <!--BackgroundColor="#edf2f4"-->
 
+    <Grid BackgroundColor="#fdfffc">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Frame HeightRequest="200"
+               WidthRequest="200"
+               VerticalOptions="Center"
+               Margin="0,100,0,0"
+               Background="Transparent"
+               BorderColor="Transparent">
+            <Image Source="bear.png">
 
-        <StackLayout  Padding="20"
-                          Spacing="20"
-                          MaximumWidthRequest="500">
-            <Entry 
-                Placeholder="Почта"
-                x:Name="ent_Login"
-                TextColor="White"/>
-            <Entry Placeholder="Пароль" 
-                       IsPassword="True"
-                   TextColor="White"
-                       x:Name="ent_Password"/>
-            <Button Text="Войти"
-                        BackgroundColor="White"
-                        TextColor="Black"
-                        CornerRadius="5"
-                        Margin="0, 20, 0, 0"
-                        FontSize="20"
-                        x:Name="btn_Authorization"/>
-            <Button Text="Регистрации"
+            </Image>
+        </Frame>
+
+        <Grid Grid.Row="1"
+                  RowSpacing="5"
+                  Margin="20,50,20,0"
+                  Padding="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label
+                    HorizontalOptions="Center"
+                    Grid.Row="0"
+                    FontSize="40"
+                    TextColor="Black"
+                    Text="Welcome!"
+                    FontFamily="ProtestRiotRegular"
+                    FontAttributes="Bold"/>
+            <Label
+                Text="Please enter your email and password"
+                Grid.Row="1"
+                TextColor="#70798c" 
+                FontSize="Subtitle"
+                HorizontalTextAlignment="Center"/>
+            <StackLayout
+                    WidthRequest="350"
+                    Grid.Row="2"
+                    Orientation="Vertical"
+                    Spacing="20"
+                    HorizontalOptions="CenterAndExpand">
+                <Frame
                         BackgroundColor="Transparent"
-                        BorderColor="White"
-                        BorderWidth="2"
-                        TextColor="White"
-                        CornerRadius="5"
-                        Margin="0, 5, 0, 0"
-                        FontSize="20"
+                        BorderColor="#023e8a"
+                        Padding="2"
+                        HorizontalOptions="FillAndExpand"
+                        CornerRadius="30">
+                    <StackLayout Orientation="Horizontal">
+                        <Frame     BackgroundColor="Transparent"
+                                   HeightRequest="40"
+                                   WidthRequest="40"
+                                   CornerRadius="25"
+                                   Padding="0"
+                                   Margin="3"
+                                   BorderColor="Transparent">
+                            <Image
+                                    Source="email.png"
+                                    Margin="0"
+                                    BackgroundColor="Transparent"
+                                    Aspect="Center"/>
+                        </Frame>
+                        <Entry  x:Name="ent_Login"
+                                Margin="0,0,20,0"
+                                 Text=""
+                                 Placeholder="Email"
+                                 TextColor="Black"
+                                 FontAttributes="None"
+                                VerticalOptions="Center"
+                                HorizontalOptions="FillAndExpand"/>
+                    </StackLayout>
+                </Frame>
+                <Frame
+                        BackgroundColor="Transparent"
+                        BorderColor="#023e8a"
+                        Padding="2"
+                        HorizontalOptions="FillAndExpand"
+                        CornerRadius="30">
+                    <StackLayout Orientation="Horizontal">
+                        <Frame BackgroundColor="Transparent"
+                                HeightRequest="40"
+                                WidthRequest="40"
+                                CornerRadius="25"
+                                Padding="0"
+                                Margin="3"
+                                BorderColor="Transparent">
+                            <Image
+                                 Margin="0"
+                                Aspect="Center"
+                                Source="lock.png"/>
+                        </Frame>
+                        <Entry
+                            x:Name="ent_Password"
+                            Margin="0,0,20,0"
+                            Text=""
+                            Placeholder="Password"
+                            IsPassword="True"
+                            TextColor="Black"
+                            FontAttributes="None"
+                            VerticalOptions="Center"
+                            HorizontalOptions="FillAndExpand"/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+
+            <Button Grid.Row="3"
+                    Text="SIGN IN"
+                    TextColor="White"
+                    BackgroundColor="#023e8a"
+                    TextTransform="Uppercase"
+                    FontSize="Body"
+                    CornerRadius="25"
+                    FontAttributes="Bold"
+                    
+                    WidthRequest="200"
+                    Margin="0,20,0,0">
+            </Button>
+            <StackLayout Grid.Row="4"
+                         Orientation="Horizontal"
+                         Spacing="10"
+                         HorizontalOptions="CenterAndExpand"
+                         Margin="0,50,0,0"
+                         VerticalOptions="Center">
+                <Label Text="New User?"
+                       TextColor="#70798c"
+                       FontSize="Small"
+                       Margin="0,10,0,0"/>
+                <Button 
+                        BackgroundColor="Transparent"
+                        Text="Sign Up"
+                        TextColor="#023e8a"
+                        FontAttributes="Bold"
+                        FontSize="Small"
                         x:Name="btn_Registrations"/>
-        </StackLayout>
-    </VerticalStackLayout>
+            </StackLayout>
+        </Grid>
+    </Grid>
 </ContentPage>
