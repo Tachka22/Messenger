@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="mauiClient.View.SettingPage"
+             NavigationPage.HasNavigationBar="False">
+    <Grid BackgroundColor="#fdfffc"
+          Padding="20,0,0,20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="220"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Frame Margin="0,20,0,0"
+               HeightRequest="200"
+               WidthRequest="200"
+               CornerRadius="100"
+               BorderColor="Blue"
+               BackgroundColor="Transparent">
+            <Image
+                Aspect="AspectFit"
+                Source="dotnet_bot"/>
+        </Frame>
+        <Grid Grid.Row="1" Padding="50,10,50,10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <StackLayout Orientation="Vertical"
+                         Spacing="20"
+                         HorizontalOptions="Center">
+                <Label Text="useremail@maiol.com"
+                       FontSize="16"
+                       FontAttributes="Bold"
+                       TextColor="#2b2d42"
+                       HorizontalTextAlignment="Center"/>
+                <Label Text="User203470"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       TextColor="#2b2d42"
+                       HorizontalTextAlignment="Center"/>
+            </StackLayout>
+            
+        </Grid>
+        
+    </Grid>
+</ContentPage>
