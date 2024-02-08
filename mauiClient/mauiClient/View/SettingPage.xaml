@@ -3,44 +3,167 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="mauiClient.View.SettingPage"
              NavigationPage.HasNavigationBar="False">
-    <Grid BackgroundColor="#fdfffc"
-          Padding="20,0,0,20">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="220"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Frame Margin="0,20,0,0"
-               HeightRequest="200"
-               WidthRequest="200"
-               CornerRadius="100"
-               BorderColor="Blue"
-               BackgroundColor="Transparent">
-            <Image
-                Aspect="AspectFit"
-                Source="dotnet_bot"/>
-        </Frame>
-        <Grid Grid.Row="1" Padding="50,10,50,10">
+    <VerticalStackLayout BackgroundColor="#F5F5F5">
+        <Grid 
+          Padding="20,20,20,20">
             <Grid.RowDefinitions>
-                <RowDefinition Height="50"/>
-                <RowDefinition Height="50"/>
+                <RowDefinition Height="250"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <StackLayout Orientation="Vertical"
-                         Spacing="20"
-                         HorizontalOptions="Center">
+            <StackLayout Grid.Row="0"
+                         Spacing="20">
+                <Frame Margin="0,10,0,0"
+                        HeightRequest="120"
+                        WidthRequest="120"
+                        CornerRadius="120"
+                        BorderColor="#393939"
+                        BackgroundColor="Transparent">
+                    <Image
+                        Aspect="AspectFit"
+                        Source="dotnet_bot.png"/>
+                </Frame>
                 <Label Text="useremail@maiol.com"
-                       FontSize="16"
-                       FontAttributes="Bold"
-                       TextColor="#2b2d42"
-                       HorizontalTextAlignment="Center"/>
+                        FontSize="16"
+                        FontAttributes="Bold"
+                        TextColor="#2b2d42"
+                        HorizontalTextAlignment="Center"/>
                 <Label Text="User203470"
-                       FontSize="20"
-                       FontAttributes="Bold"
-                       TextColor="#2b2d42"
-                       HorizontalTextAlignment="Center"/>
+                        FontSize="20"
+                        FontAttributes="Bold"
+                        TextColor="#2b2d42"
+                        HorizontalTextAlignment="Center"/>
             </StackLayout>
-            
+            <StackLayout Grid.Row="1"
+                         HorizontalOptions="FillAndExpand"
+                         MaximumWidthRequest="600">
+                <Grid  Padding="10,20,10,0"
+                  Margin="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <StackLayout Orientation="Vertical"
+                         Spacing="10"
+                         HorizontalOptions="Center">
+
+                    </StackLayout>
+                    <Frame Grid.Row="0"
+                   BackgroundColor="White"
+                   BorderColor="White"
+                   CornerRadius="10"
+                   Padding="10,10,8,10">
+                        <StackLayout Orientation="Horizontal"
+                             Padding="0">
+                            <Frame     BackgroundColor="Transparent"
+                                       Padding="4"
+                                       Margin="0"
+                                       BorderColor="Transparent"
+                                       WidthRequest="30"
+                                       HeightRequest="30">
+                                <Image
+                                    Source="account"
+                                    Margin="0"
+                                    Aspect="AspectFill"/>
+                            </Frame>
+                            <Label Text="Change Profile"
+                           TextColor="#393939"
+                           VerticalTextAlignment="Center"
+                           FontSize="Body"
+                           Margin="20,0,0,0"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame  Grid.Row="1"
+                    BackgroundColor="White"
+                    BorderColor="White"
+                    CornerRadius="10"
+                    Padding="10,0,0,0"
+                    Margin="0,20,0,0">
+                        <Grid Padding="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="50"/>
+                            </Grid.RowDefinitions>
+
+                            <StackLayout Grid.Row="0" 
+                             Orientation="Horizontal"
+                             Padding="0"
+                             Margin="0">
+                                <Frame BackgroundColor="Transparent"
+                                        Padding="3"
+                                        Margin="0"
+                                        BorderColor="Transparent"
+                                        HeightRequest="30"
+                                        WidthRequest="30">
+                                    <Image
+                                        Source="security.svg"
+                                        Margin="0"
+                                        BackgroundColor="Transparent"
+                                        Aspect="AspectFill"/>
+                                </Frame>
+                                <Label  Text="Privacy and Security"
+                                        TextColor="#393939"
+                                        VerticalTextAlignment="Center"
+                                        FontSize="Body"
+                                        Margin="20,0,0,0"/>
+                            </StackLayout>
+                            <StackLayout Grid.Row="2" 
+                             Orientation="Horizontal"
+                             Padding="0"
+                             Margin="0">
+                                <Frame BackgroundColor="Transparent"
+                                        Padding="2"
+                                        Margin="0"
+                                        BorderColor="Transparent"
+                                        HeightRequest="30"
+                                        WidthRequest="30">
+                                    <Image
+                                    Source="dynamic.svg"
+                                    Margin="0"
+                                    BackgroundColor="Transparent"
+                                    Aspect="AspectFill"/>
+                                </Frame>
+                                <Label  Text="Appearance"
+                                        TextColor="#393939"
+                                        VerticalTextAlignment="Center"
+                                        FontSize="Body"
+                                        Margin="20,0,0,0"/>
+                            </StackLayout>
+                        </Grid>
+
+                    </Frame>
+                    <Frame Grid.Row="4"
+                    BackgroundColor="White"
+                    BorderColor="White"
+                    CornerRadius="10"
+                    Padding="10,10,8,10"
+                    Margin="0,20,0,0">
+                        <StackLayout Orientation="Horizontal"
+                            Padding="0">
+                            <Frame     BackgroundColor="Transparent"
+                                       Padding="5"
+                                       Margin="0"
+                                       BorderColor="Transparent"
+                                       WidthRequest="30"
+                                       HeightRequest="30">
+                                <Image
+                            Source="logout"
+                            Margin="0"
+                            BackgroundColor="Transparent"
+                            Aspect="AspectFit"/>
+                            </Frame>
+                            <Label Text="Log Out"
+                            TextColor="Red"
+                            VerticalTextAlignment="Center"
+                            FontSize="Body"
+                            Margin="20,0,0,0"/>
+                        </StackLayout>
+                    </Frame>
+                </Grid>
+            </StackLayout>
         </Grid>
-        
-    </Grid>
+
+    </VerticalStackLayout>
 </ContentPage>
