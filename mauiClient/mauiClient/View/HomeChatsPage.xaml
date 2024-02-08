@@ -3,63 +3,66 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="mauiClient.View.HomeChatsPage"
              NavigationPage.HasNavigationBar="False">
-    <VerticalStackLayout BackgroundColor="White">
-        <Grid HorizontalOptions="FillAndExpand">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="90"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <VerticalStackLayout  BackgroundColor="#eaeaea">
-                <Grid Padding="10,0,10,0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Button Text="Edit"
+    <Grid HorizontalOptions="FillAndExpand" BackgroundColor="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="55"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Padding="10,5,10,0" BackgroundColor="#eaeaea">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Text="Edit"
                        FontAttributes="Bold"
-                       FontSize="16"
+                       FontSize="17"
                        TextColor="#4361ee"
                        VerticalOptions="Center"
                        BackgroundColor="Transparent"
                        HorizontalOptions="Start"/>
-                    <Label Grid.Column="1"
+            <Label Grid.Column="1"
                        Text="Chats"
                        VerticalTextAlignment="Center"
                        HorizontalOptions="Center"
                        FontAttributes="Bold"
                        TextColor="#1b263b"
                        FontSize="20"/>
-                    <Button Grid.Column="2"
+            <Button Grid.Column="2"
                        Text="New"
+                       VerticalOptions="CenterAndExpand"
                        HorizontalOptions="End"
                        FontAttributes="Bold"
                        TextColor="#4361ee"
-                       FontSize="16"
+                       FontSize="17"
                        Background="Transparent"/>
-                </Grid>
-                <Frame  Margin="20,0,20,0"
+        </Grid>
+        <ScrollView Grid.Row="1"
+                x:Name="scrollContent">
+            <StackLayout x:Name="StackL">
+                <Frame BackgroundColor="#eaeaea"
+                       Padding="0"
+                       BorderColor="Transparent"
+                       CornerRadius="0"
+                       Margin="0">
+                    <Frame  Margin="25,5,25,5"
                         BackgroundColor="#F6F5F5"
                         HeightRequest="40"
                         CornerRadius="10"
-                        Padding="0"
+                        Padding="20,0,20,0"
                         BorderColor="Transparent">
-                    <StackLayout Orientation="Horizontal"
-                             HorizontalOptions="Center">
-                        <Entry Placeholder="Search"
-                               Margin="0"
-                           Background="Transparent"
-                           HorizontalOptions="FillAndExpand"/>
-                    </StackLayout>
+                        <StackLayout Orientation="Horizontal"
+                  HorizontalOptions="Center"
+                                 Padding="20,0,20,0">
+                            <Entry Placeholder="Search"
+                    Margin="0"
+                    Background="Transparent"
+                    HorizontalOptions="FillAndExpand"/>
+                        </StackLayout>
+                    </Frame>
                 </Frame>
-            </VerticalStackLayout>
-            <ScrollView Grid.Row="1"
-                        VerticalScrollBarVisibility="Always"
-                x:Name="scrollContent">
-                <StackLayout x:Name="StackL"
-                             Padding="10">
-                </StackLayout>
-            </ScrollView>
-        </Grid>
-    </VerticalStackLayout>
+
+            </StackLayout>
+        </ScrollView>
+    </Grid>
 </ContentPage>
