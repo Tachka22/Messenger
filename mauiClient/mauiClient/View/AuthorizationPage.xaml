@@ -79,7 +79,7 @@
                         <Entry  x:Name="ent_Login"
                                 Margin="0,0,20,0"
                                  Text="{Binding LoginParams.PhoneNumber}"
-                                 Placeholder="Email"
+                                 Placeholder="Phone"
                                  TextColor="Black"
                                  FontAttributes="None"
                                 VerticalOptions="Center"

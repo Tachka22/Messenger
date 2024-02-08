@@ -1,0 +1,3 @@
+﻿1.LoginPage placeholder
+2.RegisterPage Password is visable false
+3.Валидация паролля не работает.

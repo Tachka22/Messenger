@@ -8,7 +8,7 @@ namespace mauiClient
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new AuthorizationPage());
+            MainPage = new AppShell(); 
         }
         protected override Window CreateWindow(IActivationState activationState)
         {
