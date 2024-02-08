@@ -1,17 +1,14 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using MauiAppRegAuth.Model;
 using mauiClient.Model;
 using mauiClient.Services;
-using mauiClient.View;
+
 
 
 namespace mauiClient.ViewModel
 {
     public partial class LoginViewModel : ObservableObject
     {
-        [ObservableProperty]
-        private RegisterModel registerModel;
 
         [ObservableProperty]
         private LoginParams loginParams;
@@ -19,32 +16,25 @@ namespace mauiClient.ViewModel
         [ObservableProperty]
         public bool isAuthenticated;
 
-        private readonly AuthService _authService;
+        private readonly ClientService _authService;
 
-        public LoginViewModel(AuthService authService)
+        public LoginViewModel(ClientService authService)
         {
             _authService = authService;
-            RegisterModel = new();
             LoginParams = new LoginParams();
             IsAuthenticated = false;
         }
 
         [RelayCommand]
-        private async Task Register()
-        {
-            await _authService.Register(RegisterModel);
-        }
-
-        [RelayCommand]
         private async Task Login()
         {
-            if (LoginParams.Email is null && LoginParams.Password is null)
+            if (LoginParams.PhoneNumber is null && LoginParams.Password is null)
             {
-                await Shell.Current.DisplayAlert("Error", "Enter your email and password", "Ok");
+                await Shell.Current.DisplayAlert("Error", "Enter your phone number and password", "Ok");
                 return;
             }
 
-            if (IsValidEmail(LoginParams.Email) && LoginParams.Password.Length > 0) 
+            if (LoginParams.PhoneNumber.Length > 5 && LoginParams.Password.Length > 0) 
                 await GoToHomeChatsPage();
             else
                 await Shell.Current.DisplayAlert("Error", "Check the correctness of the input data", "Ok");

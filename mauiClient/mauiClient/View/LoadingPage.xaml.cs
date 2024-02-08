@@ -4,8 +4,8 @@ namespace mauiClient.View;
 
 public partial class LoadingPage : ContentPage
 {
-	private readonly AuthService _authService;
-	public LoadingPage( AuthService authService)
+	private readonly ClientService _authService;
+	public LoadingPage( ClientService authService)
 	{
 		InitializeComponent();
 		_authService = authService;
