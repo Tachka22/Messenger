@@ -2,9 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="mauiClient.View.RegistrationPage"
-             xmlns:viewmodel="clr-namespace:mauiClient.ViewModel"
-             x:DataType="viewmodel:RegisterViewModel"
-             NavigationPage.HasNavigationBar="True">
+             Title="">
     <VerticalStackLayout BackgroundColor="#fdfffc">
 
         <StackLayout  Padding="20"
@@ -16,14 +14,13 @@
                 <StackLayout>
                     <Label
                             FontSize="Small"
-                            Text="Phone:"
+                            Text="Email:"
                             Margin="2,5,0,0"
                             TextColor="#023e8a"/>
                     <Entry  Placeholder="yourmail@example.com"
                                 x:Name="ent_LoginReg"
                                 TextColor="#343a40"
-                                BackgroundColor="#dee2e6"
-                                Text="{Binding RegisterModel.PhoneNumber }"/>
+                                BackgroundColor="#dee2e6"/>
                 </StackLayout>
 
             </VerticalStackLayout>
@@ -43,8 +40,7 @@
                     BackgroundColor="#dee2e6"
                     TextColor="#343a40"
                     Placeholder="********"
-                    x:Name="ent_PasswordReg"
-                    Text="{Binding RegisterModel.Password}"/>
+                    x:Name="ent_PasswordReg"/>
             </VerticalStackLayout>
 
             <VerticalStackLayout>
@@ -65,7 +61,7 @@
             <VerticalStackLayout>
                 <Label
                     FontSize="Small"
-                    Text="Email:"
+                    Text="Phone number:"
                     Margin="2,5,0,0"
                      TextColor="#023e8a"/>
                 <Entry
@@ -83,7 +79,7 @@
                     FontAttributes="Bold"
                     Margin="0, 80, 0, 0"
                     FontSize="20"
-                    Command="{Binding RegisterCommand}"/>
+                    x:Name="btn_Registrations"/>
         </StackLayout>
     </VerticalStackLayout>
 </ContentPage>

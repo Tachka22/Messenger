@@ -2,4 +2,98 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="mauiClient.MainPage">
+    <Grid BackgroundColor="#1d2d44">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <StackLayout 
+             BackgroundColor="#0e1621"
+            Grid.Column="0">
+        </StackLayout>
+        <StackLayout
+            Grid.Column="1"
+            x:Name="StackL">
+        </StackLayout>
+        <Grid Grid.Column="2" 
+            BackgroundColor="#0e1621">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Frame Grid.Row="0"
+                    BackgroundColor="#1d2d44"
+                    BorderColor="#1d2d44"
+                    Padding="2"
+                    Margin="0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <VerticalStackLayout Grid.Column="1" >
+                        <Label  Margin="20,0,0,0"
+                         x:Name="label_ChatName"
+                         FontAttributes="Bold"
+                         FontSize="18"/>
+                        <Label
+                     Margin="20,0,0,0"
+                     x:Name="label_IdRoom">
+                        </Label>
+                    </VerticalStackLayout>
+
+                </Grid>
+
+            </Frame>
+            
+            <!-- Область отображения сообщений -->
+            <ScrollView Grid.Row="1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0"
+                            x:Name="chatMessage"
+                            FontSize="18"
+                            TextColor="White"
+                            HorizontalOptions="Start">
+                    </Label>
+                    <Label Grid.Column="1"
+                            x:Name="chatMessageMi"
+                            FontSize="18"
+                            TextColor="White"
+                            HorizontalOptions="End">
+                    </Label>
+                </Grid>
+            </ScrollView>
+
+            <!-- Область ввода сообщения -->
+            <Grid Grid.Row="2"
+                  BackgroundColor="#1d2d44">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Editor 
+                    Grid.Column="0"
+                    x:Name="myChatMessage"
+                    Placeholder="Написать сообщение..."
+                    TextColor="White"
+                    VerticalTextAlignment="Center"/>
+                <Button x:Name="sendBtn"
+                        TextColor="White"
+                        Grid.Column="1"
+                        Text="Отправить"
+                        FontSize="Body"
+                        BackgroundColor="Transparent"
+                        BorderColor="White"
+                        BorderWidth="1"
+                        CornerRadius="20"
+                        VerticalOptions="Center"/>
+            </Grid>
+        </Grid>
+    </Grid>
 </ContentPage>

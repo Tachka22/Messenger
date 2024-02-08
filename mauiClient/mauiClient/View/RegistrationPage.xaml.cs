@@ -1,12 +1,9 @@
-using mauiClient.ViewModel;
-
 namespace mauiClient.View;
 
 public partial class RegistrationPage : ContentPage
 {
-	public RegistrationPage(RegisterViewModel registerViewModel)
+	public RegistrationPage()
 	{
 		InitializeComponent();
-        BindingContext = registerViewModel;
-    }
+	}
 }
