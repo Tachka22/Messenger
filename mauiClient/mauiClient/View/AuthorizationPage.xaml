@@ -2,13 +2,16 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="mauiClient.View.AuthorizationPage"
-             Title="">
+             xmlns:viewmodel="clr-namespace:mauiClient.ViewModel"
+             x:DataType="viewmodel:LoginViewModel"
+             NavigationPage.HasNavigationBar="False">
     <!--BackgroundColor="#edf2f4"-->
 
     <Grid BackgroundColor="#fdfffc">
         <Grid.RowDefinitions>
             <RowDefinition Height="200"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
         <Frame HeightRequest="200"
@@ -42,7 +45,7 @@
                     FontFamily="ProtestRiotRegular"
                     FontAttributes="Bold"/>
             <Label
-                Text="Please enter your email and password"
+                Text="Please enter your phone and password"
                 Grid.Row="1"
                 TextColor="#70798c" 
                 FontSize="Subtitle"
@@ -75,7 +78,7 @@
                         </Frame>
                         <Entry  x:Name="ent_Login"
                                 Margin="0,0,20,0"
-                                 Text=""
+                                 Text="{Binding LoginParams.PhoneNumber}"
                                  Placeholder="Email"
                                  TextColor="Black"
                                  FontAttributes="None"
@@ -105,7 +108,7 @@
                         <Entry
                             x:Name="ent_Password"
                             Margin="0,0,20,0"
-                            Text=""
+                            Text="{Binding LoginParams.Password}"
                             Placeholder="Password"
                             IsPassword="True"
                             TextColor="Black"
@@ -124,9 +127,10 @@
                     FontSize="Body"
                     CornerRadius="25"
                     FontAttributes="Bold"
-                    
+                    x:Name="btn_In"
                     WidthRequest="200"
-                    Margin="0,20,0,0">
+                    Margin="0,20,0,0"
+                     Command="{Binding LoginCommand}">
             </Button>
             <StackLayout Grid.Row="4"
                          Orientation="Horizontal"
@@ -144,7 +148,8 @@
                         TextColor="#023e8a"
                         FontAttributes="Bold"
                         FontSize="Small"
-                        x:Name="btn_Registrations"/>
+                        x:Name="btn_Registrations"
+                        Command="{Binding GoToRegisterPageCommand}"/>
             </StackLayout>
         </Grid>
     </Grid>
