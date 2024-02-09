@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="mauiClient.View.SettingPages.ChangeProfilePage"
+             Title="ChangeProfilePage"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:viewmodel="clr-namespace:mauiClient.ViewModel"
+             x:DataType="viewmodel:SettingProfileViewModel">
+    <VerticalStackLayout BackgroundColor="#F5F5F5">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Padding="20,5,20,0" BackgroundColor="#F5F5F5"
+              MaximumWidthRequest="600">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Text="Back"
+                    FontAttributes="Bold"
+                    FontSize="15"
+                    TextColor="#4361ee"
+                    VerticalOptions="Center"
+                    BackgroundColor="Transparent"
+                    HorizontalOptions="Start"
+                    Command="{Binding GoBackCommand}"/>
+                <Button Grid.Column="2"
+                    Text="Done"
+                    FontAttributes="Bold"
+                    FontSize="15"
+                    TextColor="#4361ee"
+                    VerticalOptions="Center"
+                    BackgroundColor="Transparent"
+                    HorizontalOptions="End"
+                    Command="{Binding ClickDoneCommand}"/>
+            </Grid>
+
+            <VerticalStackLayout Grid.Row="1" MaximumWidthRequest="600">
+                <Frame  Margin="0,10,0,0"
+                        HeightRequest="150"
+                        WidthRequest="150"
+                        CornerRadius="150"
+                        BorderColor="Transparent"
+                        BackgroundColor="Transparent">
+                    <Image
+                        Aspect="AspectFit"
+                        Source="setavatar.png"/>
+                </Frame>
+                <Label Text="Set New Photo"
+                       HorizontalOptions="Center"
+                       VerticalTextAlignment="Center"
+                       FontSize="15"
+                       TextColor="#4361ee">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding SetNewPhotoCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                <StackLayout Padding="30,40,30,0">
+                    <Frame BackgroundColor="White"
+                           BorderColor="Transparent"
+                           Padding="0">
+                        <StackLayout>
+                            <Entry Placeholder="Name"
+                                   TextColor="#212529"
+                                   Text="{Binding User.Name}">
+
+                            </Entry>
+                            <Line Stroke="#F5F5F5"
+                                  StrokeThickness="2"
+                                  X2="600"/>
+                            <Entry Placeholder="Surname"
+                                   TextColor="#212529"
+                                   Text="{Binding User.Surname}">
+
+                            </Entry>
+                        </StackLayout>
+                    </Frame>
+                    <Label Text="Enter you name and add an optiomal profile photo."
+                           TextColor="#6d6875"
+                           FontSize="12"
+                           Margin="10,4,0,0"/>
+                    <Frame BackgroundColor="White"
+                           BorderColor="Transparent"
+                           Padding="0"
+                           Margin="0,30,0,0">
+                        <StackLayout>
+                            <Entry Placeholder="Bio"
+                                   TextColor="#212529"
+                                   Text="{Binding User.Bio}">
+
+                            </Entry>
+                        </StackLayout>
+                    </Frame>
+                    <Label Text="Any Details such as age, city."
+                           TextColor="#6d6875"
+                           FontSize="12"
+                           Margin="10,4,0,0"/>
+                    <Frame BackgroundColor="White"
+                           BorderColor="Transparent"
+                           Margin="0,30,0,0"
+                           Padding="0">
+                        <StackLayout>
+                            <Entry Placeholder="Username"
+                                   TextColor="#212529"
+                                   Text="{Binding User.UserName}">
+
+                            </Entry>
+                            <Line Stroke="#F5F5F5"
+                                  StrokeThickness="2"
+                                  X2="600"/>
+                            <Entry Placeholder="Email"
+                                   TextColor="#212529"
+                                   Text="{Binding User.Email}">
+
+                            </Entry>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </VerticalStackLayout>
+        </Grid>
+
+    </VerticalStackLayout>
+</ContentPage>
