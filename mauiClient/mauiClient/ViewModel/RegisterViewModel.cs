@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using MauiAppRegAuth.Model;
+using mauiClient.Model;
 using mauiClient.Services;
 
 namespace mauiClient.ViewModel
@@ -16,11 +17,15 @@ namespace mauiClient.ViewModel
         [ObservableProperty]
         public RegisterModel registerModel;
 
+        [ObservableProperty]
+        public User user;
+
         private readonly ClientService _regService;
         public RegisterViewModel(ClientService clientService)
         {
             _regService = clientService;
             RegisterModel = new();
+            User = new();
         }
 
         [RelayCommand]
@@ -28,7 +33,7 @@ namespace mauiClient.ViewModel
         {
             if(RegisterModel.PhoneNumber is null && RegisterModel.Password is null)
             {
-                await Shell.Current.DisplayAlert("Error", "Enter your email and password", "Ok");
+                await Shell.Current.DisplayAlert("Error", "Enter your data", "Ok");
                 return;
             }
             if(CheckPasswordValidate(RegisterModel.Password))
@@ -39,7 +44,7 @@ namespace mauiClient.ViewModel
             {
                 await Shell.Current.DisplayAlert("Error", "Check the correctness of the input data", "Ok");
             }
-            await _regService.Register(RegisterModel);
+            //await _regService.Register(RegisterModel);
         }
         /// <summary>
         /// Валидация пароля.
@@ -61,6 +66,11 @@ namespace mauiClient.ViewModel
         private async Task GoToHomeChatsPage()
         {
             await Shell.Current.GoToAsync($"//{nameof(View.HomeChatsPage)}");
+        }
+        [RelayCommand]
+        private async Task GoToLoginPage()
+        {
+            await Shell.Current.GoToAsync($"//{nameof(View.AuthorizationPage)}");
         }
     }
 }
