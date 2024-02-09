@@ -5,75 +5,96 @@
              xmlns:viewmodel="clr-namespace:mauiClient.ViewModel"
              x:DataType="viewmodel:RegisterViewModel"
              NavigationPage.HasNavigationBar="True">
-    <VerticalStackLayout BackgroundColor="#fdfffc">
+    <VerticalStackLayout BackgroundColor="#F5F5F5"
+                         Padding="20,5,20,0">
 
-        <StackLayout  Padding="20"
+
+        <StackLayout  Padding="10,30,10,0"
                       Spacing="20"
-                      MaximumWidthRequest="500"
+                      MaximumWidthRequest="600"
                       MinimumWidthRequest="300">
-            <VerticalStackLayout>
+            <StackLayout>
+                <Label Text="Enter your phone number"
+                       TextColor="#212529"/>
+                <Frame BackgroundColor="White"
+                           BorderColor="Transparent"
+                           Padding="0"
+                           Margin="0,2,0,0">
+                    <StackLayout>
+                        <Entry Placeholder="+7 (999)-999-15-66"
+                                   TextColor="#212529"
+                                   Text="{Binding RegisterModel.PhoneNumber}">
 
-                <StackLayout>
-                    <Label
-                            FontSize="Small"
-                            Text="Phone:"
-                            Margin="2,5,0,0"
-                            TextColor="#023e8a"/>
-                    <Entry  Placeholder="yourmail@example.com"
-                                x:Name="ent_LoginReg"
-                                TextColor="#343a40"
-                                BackgroundColor="#dee2e6"
-                                Text="{Binding RegisterModel.PhoneNumber }"/>
-                </StackLayout>
+                        </Entry>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
 
-            </VerticalStackLayout>
-            
             <VerticalStackLayout>
                 <Label
-                    FontSize="Small"
-                    Text="Password:"
-                    TextColor="#023e8a"
+                    Text="Name"
+                    Margin="2,5,0,0"
+                     TextColor="#212529"/>
+                <Frame BackgroundColor="White"
+                           BorderColor="Transparent"
+                           Padding="0"
+                           Margin="0,2,0,0">
+                    <StackLayout>
+                        <Entry Placeholder="Mark"
+                                   TextColor="#212529"
+                                   Text="{Binding User.Name}">
+
+                        </Entry>
+                    </StackLayout>
+                </Frame>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout>
+                <Label
+                    Text="Password"
+                    TextColor="#212529"
                     Margin="2,5,0,0"/>
                 <Label
-                    FontSize="Micro"
                     Margin="2,2,0,0"
                     TextColor="#70798c"
                     Text="Must contain uppercase characters, numbers, and special characters"/>
-                <Entry
-                    BackgroundColor="#dee2e6"
-                    TextColor="#343a40"
-                    Placeholder="********"
-                    x:Name="ent_PasswordReg"
-                    Text="{Binding RegisterModel.Password}"/>
+                <Frame BackgroundColor="White"
+                           BorderColor="Transparent"
+                           Padding="0"
+                           Margin="0,2,0,0">
+                    <StackLayout>
+                        <Entry Placeholder="******"
+                                   TextColor="#212529"
+                                   Text="{Binding RegisterModel.Password}">
+
+                        </Entry>
+                    </StackLayout>
+                </Frame>
             </VerticalStackLayout>
 
+    
             <VerticalStackLayout>
                 <Label
-                    FontSize="Small"
                     Text="Repeat the password:"
-                     TextColor="#023e8a"
+                     TextColor="#212529"
                     Margin="2,5,0,0"/>
-                <Entry
-                    BackgroundColor="#dee2e6"
-                    Placeholder="********"
-                    TextColor="#343a40"
-                    x:Name="ent_RepPasswordReg"/>
+                <Frame BackgroundColor="White"
+                           BorderColor="Transparent"
+                           Padding="0"
+                           Margin="0,2,0,0">
+                    <StackLayout>
+                        <Entry Placeholder="******"
+                                   TextColor="#212529"
+                                   Text="{Binding RegisterModel.Password}">
+
+                        </Entry>
+                    </StackLayout>
+                </Frame>
             </VerticalStackLayout>
 
             
 
-            <VerticalStackLayout>
-                <Label
-                    FontSize="Small"
-                    Text="Email:"
-                    Margin="2,5,0,0"
-                     TextColor="#023e8a"/>
-                <Entry
-                    BackgroundColor="#dee2e6"
-                    TextColor="#343a40"
-                    Placeholder="+7 (999) - 999 - 99 - 99"  
-                   x:Name="ent_PhoneNumberReg"/>
-            </VerticalStackLayout>
+
 
             <Button Text="Sign Up!"
                     BackgroundColor="#023e8a"
@@ -81,9 +102,30 @@
                     CornerRadius="20"
                     WidthRequest="200"
                     FontAttributes="Bold"
-                    Margin="0, 80, 0, 0"
+                    Margin="0, 100, 0, 0"
                     FontSize="20"
                     Command="{Binding RegisterCommand}"/>
+
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="Center"
+                         Spacing="30"
+                         Margin="0,30,0,0">
+                <Label Text="Already have an account?"
+                       FontSize="16"
+                       TextColor="#212529"
+                       HorizontalOptions="Start"
+                       VerticalTextAlignment="Center"/>
+                <Label Text="Sign In"
+                       VerticalTextAlignment="Center"
+                       TextColor="#023e8a"
+                       FontSize="18"
+                       HorizontalOptions="End">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GoToLoginPageCommand }"/>
+                    </Label.GestureRecognizers>
+
+                </Label>
+            </StackLayout>
         </StackLayout>
     </VerticalStackLayout>
 </ContentPage>
