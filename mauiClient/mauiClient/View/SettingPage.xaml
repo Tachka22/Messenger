@@ -2,7 +2,9 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="mauiClient.View.SettingPage"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False"
+             xmlns:viewmodel="clr-namespace:mauiClient.ViewModel"
+            x:DataType="viewmodel:SettingViewModel">
     <VerticalStackLayout BackgroundColor="#F5F5F5">
         <Grid 
           Padding="20,20,20,20">
@@ -23,12 +25,12 @@
                         Aspect="AspectFit"
                         Source="setavatar.png"/>
                 </Frame>
-                <Label Text="useremail@maiol.com"
+                <Label Text="{Binding User.PhoneNumber}"
                         FontSize="16"
                         FontAttributes="Bold"
                         TextColor="#2b2d42"
                         HorizontalTextAlignment="Center"/>
-                <Label Text="User203470"
+                <Label Text="{Binding User.UserName}"
                         FontSize="20"
                         FontAttributes="Bold"
                         TextColor="#2b2d42"
@@ -71,7 +73,11 @@
                            TextColor="#393939"
                            VerticalTextAlignment="Center"
                            FontSize="Body"
-                           Margin="20,0,0,0"/>
+                           Margin="20,0,0,0">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding GoToChangeProfilePageCommand}"/>
+                                </Label.GestureRecognizers>
+                            </Label>
                         </StackLayout>
                     </Frame>
                     <Frame  Grid.Row="1"
@@ -158,7 +164,11 @@
                             TextColor="Red"
                             VerticalTextAlignment="Center"
                             FontSize="Body"
-                            Margin="20,0,0,0"/>
+                            Margin="20,0,0,0">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding LogOutCommand}"/>
+                                </Label.GestureRecognizers>
+                            </Label>
                         </StackLayout>
                     </Frame>
                 </Grid>
