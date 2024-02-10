@@ -3,12 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="mauiClient.View.HomeChatsPage"
              NavigationPage.HasNavigationBar="False">
-    <Grid HorizontalOptions="FillAndExpand" BackgroundColor="White">
+    <Grid HorizontalOptions="FillAndExpand"
+          
+          BackgroundColor="#f4f4f6">
         <Grid.RowDefinitions>
             <RowDefinition Height="55"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Grid Padding="10,5,10,0" BackgroundColor="#eaeaea">
+        <Grid Padding="10,5,10,0" BackgroundColor="#f8f9fa"
+              MaximumWidthRequest="1200">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -16,7 +19,7 @@
             </Grid.ColumnDefinitions>
             <Button Text="Edit"
                        FontAttributes="Bold"
-                       FontSize="17"
+                       FontSize="15"
                        TextColor="#4361ee"
                        VerticalOptions="Center"
                        BackgroundColor="Transparent"
@@ -34,19 +37,21 @@
                        HorizontalOptions="End"
                        FontAttributes="Bold"
                        TextColor="#4361ee"
-                       FontSize="17"
+                       FontSize="15"
                        Background="Transparent"/>
         </Grid>
         <ScrollView Grid.Row="1"
+                    MaximumWidthRequest="1200"
+                    BackgroundColor="White"
                 x:Name="scrollContent">
             <StackLayout x:Name="StackL">
-                <Frame BackgroundColor="#eaeaea"
+                <Frame BackgroundColor="#f8f9fa"
                        Padding="0"
                        BorderColor="Transparent"
                        CornerRadius="0"
                        Margin="0">
                     <Frame  Margin="25,5,25,5"
-                        BackgroundColor="#F6F5F5"
+                        BackgroundColor="#dee2e6"
                         HeightRequest="40"
                         CornerRadius="10"
                         Padding="20,0,20,0"

@@ -7,7 +7,7 @@ namespace mauiClient
         public App()
         {
             InitializeComponent();
-
+            Application.Current.UserAppTheme = AppTheme.Dark;
             MainPage = new AppShell(); 
         }
         protected override Window CreateWindow(IActivationState activationState)

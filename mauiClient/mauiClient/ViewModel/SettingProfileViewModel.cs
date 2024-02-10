@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using mauiClient.Model;
+using Plugin.Media;
 
 namespace mauiClient.ViewModel
 {
@@ -25,7 +26,10 @@ namespace mauiClient.ViewModel
         private User user;
 
         [ObservableProperty]
-        private OldUser oldUser; 
+        private OldUser oldUser;
+
+        [ObservableProperty]
+        ImageSource myImageSource;
         public SettingProfileViewModel()
         {
             User = new();
@@ -54,27 +58,32 @@ namespace mauiClient.ViewModel
         [RelayCommand]
         private async Task SetNewPhoto()
         {
-            var photoSource = LoadPhoto();
-            User.PhotoSource = photoSource.Result;
+            var photoSource = await LoadPhoto();
+            //Загрузить на сервер и получить ссылку -> сохранить ссылку в бд пользователя.???
+            User.PhotoSource = photoSource;
+            await Shell.Current.DisplayAlert("Error", $"{User.PhotoSource}", "Ok");
             // TODO: Изменять фото доделать!
         }
         private async Task<string> LoadPhoto()
         {
+            // TODO: Адаптировать под Android. манифест
             if (MediaPicker.Default.IsCaptureSupported)
             {
                 FileResult photo = await MediaPicker.Default.PickPhotoAsync();
                 if (photo != null)
                 {
                     string localFilePath = Path.Combine(FileSystem.CacheDirectory, photo.FileName);
+
                     using Stream sourceStream = await photo.OpenReadAsync();
                     using FileStream localFileStream = File.OpenWrite(localFilePath);
                     await sourceStream.CopyToAsync(localFileStream);
-                    return localFilePath.ToString();
+
+                    return localFilePath;
                 }
             }
             else
             {
-                await Shell.Current.DisplayAlert("OOPS", "You device isn't supported", "Ok");
+                await Shell.Current.DisplayAlert("Error", "You device isn't supported", "Ok");
             }
             return null;
         }

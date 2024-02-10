@@ -28,13 +28,13 @@ namespace mauiClient.ViewModel
         [RelayCommand]
         private async Task Login()
         {
-            if (LoginParams.PhoneNumber is null && LoginParams.Password is null)
+            if (LoginParams.Email is null && LoginParams.Password is null)
             {
                 await Shell.Current.DisplayAlert("Error", "Enter your phone number and password", "Ok");
                 return;
             }
 
-            if (LoginParams.PhoneNumber.Length > 5 && LoginParams.Password.Length > 0) 
+            if (IsValidEmail(LoginParams.Email)  && LoginParams.Password.Length > 0) 
                 await GoToHomeChatsPage();
             else
                 await Shell.Current.DisplayAlert("Error", "Check the correctness of the input data", "Ok");

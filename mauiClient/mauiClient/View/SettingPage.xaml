@@ -25,13 +25,13 @@
                         Aspect="AspectFit"
                         Source="setavatar.png"/>
                 </Frame>
-                <Label Text="{Binding User.PhoneNumber}"
-                        FontSize="16"
+                <Label Text="{Binding User.Name}"
+                        FontSize="20"
                         FontAttributes="Bold"
                         TextColor="#2b2d42"
                         HorizontalTextAlignment="Center"/>
                 <Label Text="{Binding User.UserName}"
-                        FontSize="20"
+                        FontSize="16"
                         FontAttributes="Bold"
                         TextColor="#2b2d42"
                         HorizontalTextAlignment="Center"/>
@@ -135,7 +135,11 @@
                                         TextColor="#393939"
                                         VerticalTextAlignment="Center"
                                         FontSize="Body"
-                                        Margin="20,0,0,0"/>
+                                        Margin="20,0,0,0">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding GoToAppearancePageCommand}"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
                             </StackLayout>
                         </Grid>
 

@@ -1,5 +1,6 @@
 ﻿using mauiClient.Services;
 using mauiClient.View;
+using mauiClient.View.SettingPages;
 using mauiClient.ViewModel;
 using Microsoft.Extensions.Logging;
 
@@ -29,6 +30,10 @@ namespace mauiClient
             builder.Services.AddSingleton<LoginViewModel>();
             builder.Services.AddSingleton<RegistrationPage>();
             builder.Services.AddSingleton<RegisterViewModel>();
+            builder.Services.AddSingleton<SettingPage>();
+            builder.Services.AddSingleton<SettingViewModel>();
+            builder.Services.AddSingleton<ChangeProfilePage>();
+            builder.Services.AddSingleton<SettingProfileViewModel>();
 
             return builder.Build();
         }

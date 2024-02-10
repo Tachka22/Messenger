@@ -5,8 +5,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:mauiClient"
     xmlns:view="clr-namespace:mauiClient.View"
+    xmlns:viewsettings="clr-namespace:mauiClient.View.SettingPages"
     Shell.NavBarIsVisible="False"
-    Shell.TabBarBackgroundColor ="#eaeaea"
+    Shell.TabBarBackgroundColor ="#f8f9fa"
     Shell.TabBarUnselectedColor ="#4F4F4F"
     Shell.TabBarForegroundColor="Black"
     Shell.FlyoutBehavior="Disabled">
@@ -24,6 +25,18 @@
          ContentTemplate="{DataTemplate view:RegistrationPage}"
          Route="RegistrationPage"
          Shell.FlyoutBehavior="Disabled"/>
+    <ShellContent
+         ContentTemplate="{DataTemplate view:ChatPage}"
+         Route="ChatPage"
+        Shell.FlyoutBehavior="Disabled"/>
+    <ShellContent
+         ContentTemplate="{DataTemplate viewsettings:ChangeProfilePage}"
+         Route="ChangeProfilePage"
+         Shell.FlyoutBehavior="Disabled"/>
+    <ShellContent
+         ContentTemplate="{DataTemplate viewsettings:Appearance}"
+         Route="Appearance"
+         Shell.FlyoutBehavior="Disabled"/>
 
     <TabBar>
     <ShellContent
@@ -38,7 +51,8 @@
     <ShellContent
             Title="Settings"
             Icon="settings.svg"
-            ContentTemplate="{DataTemplate view:SettingPage}"/>
+            ContentTemplate="{DataTemplate view:SettingPage}"
+            Route="SettingPage"/>
 </TabBar>
 </Shell>
 

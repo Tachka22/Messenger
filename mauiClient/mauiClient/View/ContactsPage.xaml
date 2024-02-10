@@ -3,55 +3,71 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="mauiClient.View.ContactsPage"
              NavigationPage.HasNavigationBar="False">
-    <VerticalStackLayout BackgroundColor="White">
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="90"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <VerticalStackLayout  BackgroundColor="#eaeaea">
-                <Grid Padding="10,0,10,0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Button Text="Sort"
-                       FontAttributes="Bold"
-                       FontSize="16"
-                       TextColor="#4361ee"
-                       VerticalOptions="Center"
-                       BackgroundColor="Transparent"
-                       HorizontalOptions="Start"/>
-                    <Label Grid.Column="1"
-                       Text="Contacts"
-                       VerticalTextAlignment="Center"
-                       HorizontalOptions="Center"
-                       FontAttributes="Bold"
-                       TextColor="#1b263b"
-                       FontSize="20"/>
-                    <Button Grid.Column="2"
-                       Text="New"
-                       HorizontalOptions="End"
-                       FontAttributes="Bold"
-                       TextColor="#4361ee"
-                       FontSize="16"
-                       Background="Transparent"/>
-                </Grid>
-                <Frame Margin="20,0,20,0"
-                   BackgroundColor="#F6F5F5"
-                   CornerRadius="10"
+    <Grid HorizontalOptions="FillAndExpand"
+      
+      BackgroundColor="#f4f4f6">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="55"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Padding="10,5,10,0" BackgroundColor="#f8f9fa"
+          MaximumWidthRequest="1200">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Text="Sort"
+                   FontAttributes="Bold"
+                   FontSize="15"
+                   TextColor="#4361ee"
+                   VerticalOptions="Center"
+                   BackgroundColor="Transparent"
+                   HorizontalOptions="Start"/>
+            <Label Grid.Column="1"
+                   Text="Contacts  "
+                   VerticalTextAlignment="Center"
+                   HorizontalOptions="Center"
+                   FontAttributes="Bold"
+                   TextColor="#1b263b"
+                   FontSize="20"/>
+            <Button Grid.Column="2"
+                   Text="New"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="End"
+                   FontAttributes="Bold"
+                   TextColor="#4361ee"
+                   FontSize="15"
+                   Background="Transparent"/>
+        </Grid>
+        <ScrollView Grid.Row="1"
+                MaximumWidthRequest="1200"
+                BackgroundColor="White"
+            x:Name="scrollContent">
+            <StackLayout x:Name="StackL">
+                <Frame BackgroundColor="#f8f9fa"
                    Padding="0"
                    BorderColor="Transparent"
-                       HeightRequest="40">
-                    <StackLayout Orientation="Horizontal"
-                             HorizontalOptions="Center">
-                        <Entry Placeholder="Search"
-                           Background="Transparent"
-                           HorizontalOptions="FillAndExpand"/>
-                    </StackLayout>
+                   CornerRadius="0"
+                   Margin="0">
+                    <Frame  Margin="25,5,25,5"
+                    BackgroundColor="#dee2e6"
+                    HeightRequest="40"
+                    CornerRadius="10"
+                    Padding="20,0,20,0"
+                    BorderColor="Transparent">
+                        <StackLayout Orientation="Horizontal"
+              HorizontalOptions="Center"
+                             Padding="20,0,20,0">
+                            <Entry Placeholder="Search"
+                Margin="0"
+                Background="Transparent"
+                HorizontalOptions="FillAndExpand"/>
+                        </StackLayout>
+                    </Frame>
                 </Frame>
-            </VerticalStackLayout>
-        </Grid>
-    </VerticalStackLayout>
+
+            </StackLayout>
+        </ScrollView>
+    </Grid>
 </ContentPage>

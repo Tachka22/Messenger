@@ -2,13 +2,14 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="mauiClient.View.ChatPage">
-    <Grid>
+    <Grid BackgroundColor="#f4f4f6">
         <Grid.RowDefinitions>
             <RowDefinition Height="70"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
-        <Grid Padding="5,5,5,0" BackgroundColor="#f8f9fa">
+        <Grid Padding="5,5,5,0" BackgroundColor="#f8f9fa"
+              MaximumWidthRequest="1200">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -35,7 +36,8 @@
                        HorizontalOptions="Center"
                        VerticalTextAlignment="Center"
                        VerticalOptions="Center"
-                       FontSize="15"/>
+                       FontSize="15"
+                       TextColor="Black"/>
             </StackLayout>
             <Frame Grid.Column="2"
                    HeightRequest="50"
@@ -51,11 +53,13 @@
             </Frame>
         </Grid>
         <ScrollView Grid.Row="1"
-                    BackgroundColor="White">
+                    BackgroundColor="#d8e2dc"
+                    MaximumWidthRequest="1200">
 
         </ScrollView>
         <Grid Grid.Row="2"
-              BackgroundColor="#eaeaea">
+              BackgroundColor="#eaeaea"
+              MaximumWidthRequest="1200">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="40"/>
                 <ColumnDefinition Width="*"/>

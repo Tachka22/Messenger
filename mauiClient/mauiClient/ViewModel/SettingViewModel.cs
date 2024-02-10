@@ -35,5 +35,12 @@ namespace mauiClient.ViewModel
         {
             await Shell.Current.GoToAsync($"//{nameof(View.SettingPages.ChangeProfilePage)}");
         }
+
+        [RelayCommand]
+        private async Task GoToAppearancePage()
+        {
+            await Shell.Current.GoToAsync($"//{nameof(View.SettingPages.Appearance)}");
+        }
+
     }
 }

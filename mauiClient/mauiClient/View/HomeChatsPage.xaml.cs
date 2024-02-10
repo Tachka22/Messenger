@@ -10,12 +10,14 @@ class Language
 }
 public partial class HomeChatsPage : ContentPage
 {
-	public HomeChatsPage()
+    ListView listView = new ListView { };
+    public HomeChatsPage()
 	{
 		InitializeComponent();
-        ListView listView = new ListView { };
+        
         listView.SeparatorVisibility = SeparatorVisibility.Default;
         listView.SeparatorColor = Color.FromArgb("#eaeaea");
+        listView.ItemSelected += ListView_ItemSelected;
         // определяем источник данных
         listView.ItemsSource = new List<Language>
         {
@@ -50,5 +52,10 @@ public partial class HomeChatsPage : ContentPage
         });
         
         StackL.Add(new Microsoft.Maui.Controls.StackLayout { Children = { listView }, Padding = 7, });
+    }
+
+    private async void ListView_ItemSelected(object? sender, SelectedItemChangedEventArgs e)
+    {
+        await Shell.Current.GoToAsync($"//{nameof(View.ChatPage)}");
     }
 }

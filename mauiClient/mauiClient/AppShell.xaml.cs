@@ -13,6 +13,7 @@ namespace mauiClient
             Routing.RegisterRoute(nameof(AuthorizationPage), typeof(AuthorizationPage));
             Routing.RegisterRoute(nameof(HomeChatsPage), typeof(HomeChatsPage));
             Routing.RegisterRoute(nameof(RegistrationPage), typeof(RegistrationPage));
+            Routing.RegisterRoute(nameof(ChatPage), typeof(ChatPage));
         }
     }
 }
