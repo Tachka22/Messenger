@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="mauiClient.View.SettingPages.Appearance"
+             Title="Appearance">
+ <VerticalStackLayout BackgroundColor="#F5F5F5">
+     <Grid>
+         <Grid.RowDefinitions>
+             <RowDefinition Height="Auto"/>
+             <RowDefinition Height="*"/>
+         </Grid.RowDefinitions>
+         <Grid Padding="20,5,20,0" BackgroundColor="#F5F5F5"
+           MaximumWidthRequest="600">
+             <Grid.ColumnDefinitions>
+                 <ColumnDefinition Width="*"/>
+                 <ColumnDefinition Width="*"/>
+                 <ColumnDefinition Width="*"/>
+             </Grid.ColumnDefinitions>
+             <Button Text="Back"
+                 FontAttributes="Bold"
+                 FontSize="15"
+                 TextColor="#4361ee"
+                 VerticalOptions="Center"
+                 BackgroundColor="Transparent"
+                 HorizontalOptions="Start"/>
+             <Button Grid.Column="2"
+                 Text="Done"
+                 FontAttributes="Bold"
+                 FontSize="15"
+                 TextColor="#4361ee"
+                 VerticalOptions="Center"
+                 BackgroundColor="Transparent"
+                 HorizontalOptions="End"/>
+         </Grid>
+
+         <VerticalStackLayout Grid.Row="1" MaximumWidthRequest="600">
+            
+         </VerticalStackLayout>
+     </Grid>
+
+ </VerticalStackLayout>
+</ContentPage>
