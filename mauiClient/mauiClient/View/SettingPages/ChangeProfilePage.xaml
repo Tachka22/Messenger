@@ -47,7 +47,8 @@
                         BackgroundColor="Transparent">
                     <Image
                         Aspect="AspectFit"
-                        Source="setavatar.png"/>
+                        Source="setavatar.png"
+                        />
                 </Frame>
                 <Label Text="Set New Photo"
                        HorizontalOptions="Center"
@@ -114,6 +115,13 @@
                             <Entry Placeholder="Email"
                                    TextColor="#212529"
                                    Text="{Binding User.Email}">
+                            </Entry>
+                            <Line Stroke="#F5F5F5"
+                                  StrokeThickness="2"
+                                  X2="600"/>
+                            <Entry Placeholder="Phone"
+                                   TextColor="#212529"
+                                   Text="{Binding User.PhoneNumber}">
 
                             </Entry>
                         </StackLayout>
