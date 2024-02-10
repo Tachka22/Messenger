@@ -6,13 +6,12 @@
              x:DataType="viewmodel:LoginViewModel"
              NavigationPage.HasNavigationBar="False">
     <!--BackgroundColor="#edf2f4"-->
-
     <Grid BackgroundColor="#fdfffc">
         <Grid.RowDefinitions>
             <RowDefinition Height="200"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
         <Frame HeightRequest="200"
                WidthRequest="200"
@@ -45,7 +44,7 @@
                     FontFamily="ProtestRiotRegular"
                     FontAttributes="Bold"/>
             <Label
-                Text="Please enter your phone and password"
+                Text="Sign in to continue"
                 Grid.Row="1"
                 TextColor="#70798c" 
                 FontSize="Subtitle"
@@ -78,8 +77,8 @@
                         </Frame>
                         <Entry  x:Name="ent_Login"
                                 Margin="0,0,20,0"
-                                 Text="{Binding LoginParams.PhoneNumber}"
-                                 Placeholder="Phone"
+                                 Text="{Binding LoginParams.Email}"
+                                 Placeholder="Email"
                                  TextColor="Black"
                                  FontAttributes="None"
                                 VerticalOptions="Center"
