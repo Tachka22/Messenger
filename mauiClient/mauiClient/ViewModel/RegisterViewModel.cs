@@ -31,12 +31,12 @@ namespace mauiClient.ViewModel
         [RelayCommand]
         private async Task Register()
         {
-            if(RegisterModel.PhoneNumber is null && RegisterModel.Password is null)
+            if(RegisterModel.Email is null && RegisterModel.Password is null)
             {
                 await Shell.Current.DisplayAlert("Error", "Enter your data", "Ok");
                 return;
             }
-            if(CheckPasswordValidate(RegisterModel.Password))
+            if(CheckPasswordValidate(RegisterModel.Password) && IsValidEmail(RegisterModel.Email))
             {
                 await GoToHomeChatsPage();
             }
@@ -58,6 +58,28 @@ namespace mauiClient.ViewModel
             var hasMinimum8Chars = new Regex(@".{8,}");
             var isValidated = hasNumber.IsMatch(password) && hasUpperChar.IsMatch(password) && hasMinimum8Chars.IsMatch(password);
             return isValidated;
+        }
+        /// <summary>
+        /// Валидация почты.
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        private bool IsValidEmail(string email)
+        {
+            var trimmedEmail = email.Trim();
+            if (trimmedEmail.EndsWith("."))
+            {
+                return false;
+            }
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == trimmedEmail;
+            }
+            catch
+            {
+                return false;
+            }
         }
         /// <summary>
         /// Переход на главную страницу.

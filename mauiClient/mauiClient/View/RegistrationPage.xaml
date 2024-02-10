@@ -21,9 +21,9 @@
                            Padding="0"
                            Margin="0,2,0,0">
                     <StackLayout>
-                        <Entry Placeholder="+7 (999)-999-15-66"
+                        <Entry Placeholder="text@text.text"
                                    TextColor="#212529"
-                                   Text="{Binding RegisterModel.PhoneNumber}">
+                                   Text="{Binding RegisterModel.Email}">
 
                         </Entry>
                     </StackLayout>
