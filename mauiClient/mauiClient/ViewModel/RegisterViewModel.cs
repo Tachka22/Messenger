@@ -27,24 +27,48 @@ namespace mauiClient.ViewModel
             RegisterModel = new();
             User = new();
         }
-
         [RelayCommand]
         private async Task Register()
         {
-            if(RegisterModel.Email is null && RegisterModel.Password is null)
+            if(RegisterModel.PhoneNumber is null && RegisterModel.Password is null)
             {
                 await Shell.Current.DisplayAlert("Error", "Enter your data", "Ok");
                 return;
             }
-            if(CheckPasswordValidate(RegisterModel.Password) && IsValidEmail(RegisterModel.Email))
+            if (!RegisterModel.Password.Equals(RegisterModel.ConfirmPassword))
             {
-                await GoToHomeChatsPage();
+                await Shell.Current.DisplayAlert("Error", "Passwords don't match", "Ok");
+                return;
+            }
+            if(CheckPasswordValidate(RegisterModel.Password) && RegisterModel.PhoneNumber.Length > 5)
+            {
+                //await _regService.Register(RegisterModel);
+                await GoToCreateUserPage();
             }
             else
             {
                 await Shell.Current.DisplayAlert("Error", "Check the correctness of the input data", "Ok");
             }
             //await _regService.Register(RegisterModel);
+        }
+        [RelayCommand]
+        public async Task CreateUser() 
+        {
+            //+ проверки обязательных форм
+            if(User.Name is null)
+            {
+                await Shell.Current.DisplayAlert("Error", "Please, enter you Name", "Ok");
+            }
+            var newuser = new User
+            {
+                Id = User.Id,
+                Name = User.Name,
+                Email = User.Email,
+                Surname = User.Surname,
+                Bio = User.Bio,
+                UserName = User.UserName
+            };
+            await GoToHomeChatsPage();
         }
         /// <summary>
         /// Валидация пароля.
@@ -93,6 +117,10 @@ namespace mauiClient.ViewModel
         private async Task GoToLoginPage()
         {
             await Shell.Current.GoToAsync($"//{nameof(View.AuthorizationPage)}");
+        }
+        private async Task GoToCreateUserPage()
+        {
+            await Shell.Current.GoToAsync($"//{nameof(View.SettingPages.StartupSettings)}");
         }
     }
 }

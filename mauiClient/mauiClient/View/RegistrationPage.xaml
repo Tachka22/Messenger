@@ -6,8 +6,14 @@
              x:DataType="viewmodel:RegisterViewModel"
              NavigationPage.HasNavigationBar="True">
     <VerticalStackLayout BackgroundColor="#F5F5F5"
-                         Padding="20,5,20,0">
-
+                         Padding="20,20,20,0">
+        <StackLayout HorizontalOptions="Center">
+            <Label Text="Welcome to Bearcat, let's create an account"
+                    TextColor="#212529"
+                   FontSize="20"
+                   FontFamily="ProtestRiotRegular"
+                   HorizontalTextAlignment="Center"/>
+        </StackLayout>
 
         <StackLayout  Padding="10,30,10,0"
                       Spacing="20"
@@ -21,33 +27,13 @@
                            Padding="0"
                            Margin="0,2,0,0">
                     <StackLayout>
-                        <Entry Placeholder="text@text.text"
+                        <Entry Placeholder="79998886655"
                                    TextColor="#212529"
-                                   Text="{Binding RegisterModel.Email}">
-
+                                   Text="{Binding RegisterModel.PhoneNumber}">
                         </Entry>
                     </StackLayout>
                 </Frame>
             </StackLayout>
-
-            <VerticalStackLayout>
-                <Label
-                    Text="Name"
-                    Margin="2,5,0,0"
-                     TextColor="#212529"/>
-                <Frame BackgroundColor="White"
-                           BorderColor="Transparent"
-                           Padding="0"
-                           Margin="0,2,0,0">
-                    <StackLayout>
-                        <Entry Placeholder="Mark"
-                                   TextColor="#212529"
-                                   Text="{Binding User.Name}">
-
-                        </Entry>
-                    </StackLayout>
-                </Frame>
-            </VerticalStackLayout>
 
             <VerticalStackLayout>
                 <Label
@@ -85,7 +71,7 @@
                     <StackLayout>
                         <Entry Placeholder="******"
                                    TextColor="#212529"
-                                   Text="{Binding RegisterModel.Password}">
+                                   Text="{Binding RegisterModel.ConfirmPassword}">
 
                         </Entry>
                     </StackLayout>
@@ -96,20 +82,22 @@
 
 
 
-            <Button Text="Sign Up!"
+            <Button Text="Next"
                     BackgroundColor="#023e8a"
                     TextColor="White"
                     CornerRadius="20"
                     WidthRequest="200"
                     FontAttributes="Bold"
-                    Margin="0, 100, 0, 0"
+                    Margin="0, 250, 0, 0"
                     FontSize="20"
-                    Command="{Binding RegisterCommand}"/>
+                    Command="{Binding RegisterCommand}"
+                    VerticalOptions="End"/>
 
             <StackLayout Orientation="Horizontal"
                          HorizontalOptions="Center"
                          Spacing="30"
-                         Margin="0,30,0,0">
+                         Margin="0,20,0,0"
+                         VerticalOptions="End">
                 <Label Text="Already have an account?"
                        FontSize="16"
                        TextColor="#212529"
