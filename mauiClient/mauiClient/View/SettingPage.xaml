@@ -55,17 +55,17 @@
                    BackgroundColor="White"
                    BorderColor="White"
                    CornerRadius="10"
-                   Padding="10,10,8,10">
+                   Padding="12,10,8,10">
                         <StackLayout Orientation="Horizontal"
                              Padding="0">
                             <Frame     BackgroundColor="Transparent"
-                                       Padding="4"
+                                       Padding="3"
                                        Margin="0"
                                        BorderColor="Transparent"
                                        WidthRequest="30"
                                        HeightRequest="30">
                                 <Image
-                                    Source="account"
+                                    Source="account.png"
                                     Margin="0"
                                     Aspect="AspectFill"/>
                             </Frame>
@@ -104,7 +104,7 @@
                                         HeightRequest="30"
                                         WidthRequest="30">
                                     <Image
-                                        Source="security.svg"
+                                        Source="security.png"
                                         Margin="0"
                                         BackgroundColor="Transparent"
                                         Aspect="AspectFill"/>
@@ -126,7 +126,7 @@
                                         HeightRequest="30"
                                         WidthRequest="30">
                                     <Image
-                                    Source="dynamic.svg"
+                                    Source="roller.png"
                                     Margin="0"
                                     BackgroundColor="Transparent"
                                     Aspect="AspectFill"/>
@@ -159,7 +159,7 @@
                                        WidthRequest="30"
                                        HeightRequest="30">
                                 <Image
-                            Source="logout"
+                            Source="logout.png"
                             Margin="0"
                             BackgroundColor="Transparent"
                             Aspect="AspectFit"/>
