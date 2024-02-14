@@ -2,11 +2,118 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="mauiClient.View.CreateNewChat"
-             Title="CreateNewChat">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+             xmlns:viewmodel="clr-namespace:mauiClient.ViewModel"
+             x:DataType="viewmodel:ChatViewModel">
+    <VerticalStackLayout BackgroundColor="#F5F5F5"
+                         Padding="20,0,20,50"
+                         >
+        <Grid MaximumWidthRequest="600">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid Padding="0,10,0,0" BackgroundColor="#F5F5F5"
+              MaximumWidthRequest="600">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Text="Back"
+                    FontAttributes="Bold"
+                    FontSize="16"
+                    TextColor="#4361ee"
+                    VerticalOptions="Center"
+                    BackgroundColor="Transparent"
+                    HorizontalOptions="Start"
+                    Command="{Binding GoBackCommand}"/>
+                <Button Grid.Column="2"
+                    Text="Create"
+                    FontSize="16"
+                    TextColor="#4361ee"
+                    VerticalOptions="Center"
+                        FontAttributes="Bold"
+                    BackgroundColor="Transparent"
+                    HorizontalOptions="End"
+                        BorderColor="Transparent"
+                        BorderWidth="1"
+                        CornerRadius="18"
+                        Padding="10"
+                        Command="{Binding CreateNewChatCommand}"/>
+            </Grid>
+            <Label Grid.Row="1" 
+                Text="Let's create an account"
+                   TextColor="#212529"
+                   FontFamily="ProtestRiotRegular"
+                   FontSize="20"
+                   HorizontalTextAlignment="Center"/>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackLayout >
+                    <Frame  Margin="0,10,0,0"
+                        HeightRequest="150"
+                        WidthRequest="150"
+                        CornerRadius="150"
+                        BorderColor="Transparent"
+                        BackgroundColor="Transparent">
+                        <Image
+                        Aspect="AspectFit"
+                        Source="setavatar.png"
+                        />
+                    </Frame>
+                    <Label  Text="Set New Photo"
+                            HorizontalOptions="Center"
+                            VerticalTextAlignment="Center"
+                            FontSize="15"
+                            TextColor="#4361ee">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SetNewChatPhotoCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+                
+                <StackLayout Grid.Column="1"
+                             VerticalOptions="Center">
+                    <Frame BackgroundColor="White"
+                           BorderColor="Transparent"
+                           Padding="0"
+                           Margin="0,2,0,0">
+                        <StackLayout Spacing="5">
+                            <Entry Placeholder="Title"
+                                   TextColor="#212529"
+                                   Text="">
+                            </Entry>
+                            <Line Stroke="#F5F5F5"
+                                  StrokeThickness="2"
+                                  X2="600"/>
+                            <Entry Placeholder="ChatName"
+                                   TextColor="#212529"
+                                   Text="">
+                            </Entry>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </Grid>
+            <StackLayout Grid.Row="3"
+                         Margin="0,30,0,30">
+                <Frame BackgroundColor="White"
+                           BorderColor="Transparent"
+                           Padding="0"
+                           Margin="0,2,0,0">
+                    <StackLayout Spacing="5">
+                        <Entry Placeholder="Description"
+                                   TextColor="#212529"
+                                   Text="">
+                        </Entry>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </Grid>
     </VerticalStackLayout>
 </ContentPage>
