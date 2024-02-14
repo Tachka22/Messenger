@@ -70,15 +70,15 @@
                                    Margin="3"
                                    BorderColor="Transparent">
                             <Image
-                                    Source="email.png"
+                                    Source="phone.png"
                                     Margin="0"
                                     BackgroundColor="Transparent"
                                     Aspect="Center"/>
                         </Frame>
                         <Entry  x:Name="ent_Login"
                                 Margin="0,0,20,0"
-                                 Text="{Binding LoginParams.Email}"
-                                 Placeholder="Email"
+                                 Text="{Binding LoginParams.PhoneNumber}"
+                                 Placeholder="Phone"
                                  TextColor="Black"
                                  FontAttributes="None"
                                 VerticalOptions="Center"
